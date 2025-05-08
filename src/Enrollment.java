@@ -1,17 +1,25 @@
 import java.time.LocalDate;
-
+import java.util.*;
 public class Enrollment {
     private Student student;
     private Course  course;
     private LocalDate enrollmentDate;
     private Double  grade;
     private String  status;
-
-    public Enrollment(Student s, Course c, LocalDate date) {
+    private int maxCapacity = 7;// Example capacity
+    private List<Enrollment> enrollments = new ArrayList<>();
+    public Enrollment(Student s, Course c, LocalDate enrollmentDate) {
        setCourse(c);
        setStudent(s);
-       setEnrollmentDate(date);
-       setLocalDate(date);
+       setEnrollmentDate(enrollmentDate);
+    }
+    public void addEnrollment(Enrollment e) {
+        if (enrollments.size() < maxCapacity) {
+            enrollments.add(e);
+            System.out.println("Enrollment successful.");
+        } else {
+            System.out.println("Enrollment failed: Course is full.");
+        }
     }
 
     public void setCourse(Course course) {

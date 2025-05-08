@@ -20,6 +20,25 @@ public abstract class User {
         setContactInfo(contactInfo);
     }
 
+    public boolean login(String username, String password) {
+        return this.username.equals(username) && this.password.equals(password); // ma mot2kd sa7 wla2 la
+    }
+
+    public void updateProfile(String name, String email, String contactInfo) {
+        setName(name);
+        setEmail(email);
+        setContactInfo(contactInfo);
+    }
+
+    public void resetPassword(String newPassword) {
+        if (newPassword.length() >= 6) {
+            this.password = newPassword;
+            System.out.println("Password reset successfully.");
+        } else {
+            System.out.println("Error: Password must be at least 6 characters long.");
+        }
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -37,7 +56,11 @@ public abstract class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+       if (password.length() >= 6) {
+            this.password = password;
+        } else {
+            System.out.println("Error: Password must be at least 6 characters long.");
+        }
     }
 
     public void setUserId(String userId) {
@@ -68,14 +91,28 @@ public abstract class User {
         return password;
     }
 
-
-    public boolean login(String username, String password) {
-        return this.username.equals(username) && this.password.equals(password); // ma mot2kd sa7 wla2 la
+    /* public void saveToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt", true))) {
+            writer.write(userId + "," + username + "," + password + "," + name + "," + email + "," + contactInfo);
+            writer.newLine();
+        } catch (IOException e) {
+            System.out.println("Error: Unable to save user data.");
+        }
     }
 
-    public void updateProfile(String name, String email, String contactInfo) {
-        setName(name);
-        setEmail(email);
-        setContactInfo(contactInfo);
+     public static User loadFromFile(String userId, String username, String password) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("users.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts[0].equals(userId) && parts[1].equals(username) && parts[2].equals(password)) {
+                    return new Faculty(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "Unknown");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error: Unable to load user data.");
+        }
+        return null;
     }
+    */  //7 n7ta8hm ba3den
 }
