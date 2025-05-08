@@ -6,7 +6,7 @@ public class Faculty extends User {
 
     public Faculty(String userId, String username, String password, String name, String email, String contactInfo, String department) {
         super(userId, username, password, name, email, contactInfo);
-        this.department = department;
+        setDepartment(department);
     }
 
     public void assignGrade(Student s, Course c, double grade) {
@@ -19,5 +19,13 @@ public class Faculty extends User {
 
     public void setOfficeHours(String officeHours) {
         // lesa lesaaaaaaa
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDepartment() {
+        return department;
     }
 }

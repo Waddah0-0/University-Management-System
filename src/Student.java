@@ -6,12 +6,10 @@ public class Student extends User {
     private String academicStatus;
     private List<Enrollment> enrollments = new ArrayList<>();
 
-    public Student(String userId, String username, String password,
-                   String name, String email, String contactInfo,
-                   LocalDate admissionDate) {
+    public Student(String userId, String username, String password, String name, String email, String contactInfo, LocalDate admissionDate, String academicStatus) {
         super(userId, username, password, name, email, contactInfo);
-        this.admissionDate = admissionDate;
-        this.academicStatus = "Active";
+        setAdmissionDate(admissionDate);
+        setAcademicStatus(academicStatus);
     }
 
     public void registerForCourse(Course c) {
@@ -44,12 +42,19 @@ public class Student extends User {
         return 0.0;
     }
 
-    /* el methods ely 3lena feha el setters w getters
-    .
-    .
-    .
-    .
-    .
+    public void setAcademicStatus(String academicStatus) {
+        this.academicStatus = academicStatus;
+    }
 
-     */
+    public void setAdmissionDate(LocalDate admissionDate) {
+        this.admissionDate = admissionDate;
+    }
+
+    public LocalDate getAdmissionDate() {
+        return admissionDate;
+    }
+
+    public String getAcademicStatus() {
+        return academicStatus;
+    }
 }

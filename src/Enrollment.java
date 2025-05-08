@@ -8,10 +8,10 @@ public class Enrollment {
     private String  status;
 
     public Enrollment(Student s, Course c, LocalDate date) {
-        this.student = s;
-        this.course = c;
-        this.enrollmentDate = date;
-        this.status = "Enrolled";
+       setCourse(c);
+       setStudent(s);
+       setEnrollmentDate(date);
+       setLocalDate(date);
     }
 
     public void setCourse(Course course) {
@@ -34,6 +34,10 @@ public class Enrollment {
         this.status = status;
     }
 
+    public void setLocalDate(LocalDate date) {
+        this.enrollmentDate = date;
+    }
+
     public Course getCourse() {
         return course;
     }
@@ -46,6 +50,10 @@ public class Enrollment {
         return enrollmentDate;
     }
 
+    public String getLocalDate() {
+        return enrollmentDate.toString();
+    }
+
     public String getStatus() {
         return status;
     }
@@ -53,4 +61,6 @@ public class Enrollment {
     public Student getStudent() {
         return student;
     }
+
+
 }

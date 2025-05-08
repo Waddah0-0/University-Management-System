@@ -10,14 +10,13 @@ public abstract class Course {
     private List<Enrollment> enrollments = new ArrayList<>();
     private Faculty instructor;
 
-    public Course(String courseId, String title, String description,
-                  int creditHours, List<String> prerequisites, int maxCapacity) {
-        this.courseId = courseId;
-        this.title = title;
-        this.description = description;
-        this.creditHours = creditHours;
-        this.prerequisites = prerequisites;
-        this.maxCapacity = maxCapacity;
+    public Course(String courseId, String title, String description, int creditHours, List<String> prerequisites, int maxCapacity) {
+       setCourseId(courseId);
+        setTitle(title);
+        setDescription(description);
+        setCreditHours(creditHours);
+        setPrerequisites(prerequisites);
+        setMaxCapacity(maxCapacity);
     }
 
     public boolean hasAvailableSeats() {

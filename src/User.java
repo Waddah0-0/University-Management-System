@@ -12,12 +12,12 @@ public abstract class User {
 
     public User(String userId, String username, String password,
                 String name, String email, String contactInfo) {
-        this.userId  = userId;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.contactInfo = contactInfo;
+        setUserId(userId);
+        setUsername(username);
+        setPassword(password);
+        setName(name);
+        setEmail(email);
+        setContactInfo(contactInfo);
     }
 
     public void setName(String name) {
@@ -30,6 +30,18 @@ public abstract class User {
 
     public void setContactInfo(String contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -55,6 +67,7 @@ public abstract class User {
     public String getPassword() {
         return password;
     }
+
 
     public boolean login(String username, String password) {
         return this.username.equals(username) && this.password.equals(password); // ma mot2kd sa7 wla2 la
