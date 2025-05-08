@@ -31,12 +31,7 @@ public abstract class User {
     }
 
     public void resetPassword(String newPassword) {
-        if (newPassword.length() >= 6) {
-            this.password = newPassword;
-            System.out.println("Password reset successfully.");
-        } else {
-            System.out.println("Error: Password must be at least 6 characters long.");
-        }
+        setPassword(newPassword);
     }
 
     public void setName(String name) {
@@ -58,6 +53,7 @@ public abstract class User {
     public void setPassword(String password) {
        if (password.length() >= 6) {
             this.password = password;
+            System.out.println("Password updated successfully.");
         } else {
             System.out.println("Error: Password must be at least 6 characters long.");
         }
