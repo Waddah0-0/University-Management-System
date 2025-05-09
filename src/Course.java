@@ -39,8 +39,9 @@ public abstract class Course {
     public boolean isPrerequisiteMet(Student s) {
         if (prerequisites == null || prerequisites.isEmpty()) {
             return true;
-        }
+        } else {
         return false;
+        }
     }
 
     public void addEnrollment(Enrollment e) {
@@ -160,8 +161,8 @@ public abstract class Course {
         return description;
     }
 
-    public String getCreditHours() {
-        return (creditHours + " credit hours");
+    public int getCreditHours() {
+        return creditHours;
 
     }
 
@@ -171,6 +172,14 @@ public abstract class Course {
 
     public List<String> getPrerequisites() {
         return prerequisites;
+    }
+
+    public void displayCourseInfo() {
+        System.out.println("Course ID: " + courseId);
+        System.out.println("Title: " + title);
+        System.out.println("Description: " + description);
+        System.out.println("Credit Hours: " + creditHours);
+        System.out.println("Max Capacity: " + maxCapacity);
     }
 
     public abstract void conductClass(); // 3shan fe classes be3mlha override zay el lab w el lecture wa keda

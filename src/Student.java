@@ -15,7 +15,7 @@ public class Student extends User {
     }
 
     public void registerForCourse(Course c) {
-        if (!c.isPrerequisiteMet(null)) {
+        if (!c.isPrerequisiteMet(this)) {
             System.out.println(" Prerequisites not met");
             return;
         }
@@ -23,7 +23,7 @@ public class Student extends User {
             System.out.println("Course is full");
             return;
         }
-        Enrollment e = new Enrollment(null, c, LocalDate.now()); // al localdate de lazem 3shan a3rf el date ely 3mlt feh el enrollment ( chatgpt 8al keda)
+        Enrollment e = new Enrollment(this, c, LocalDate.now()); // al localdate de lazem 3shan a3rf el date ely 3mlt feh el enrollment ( chatgpt 8al keda)
         enrollments.add(e);
         c.addEnrollment(e);
     }
@@ -34,14 +34,17 @@ public class Student extends User {
     }
 
     public double calculateGPA() {
-        /* lesa ma 3mltha hahahhahahahahhahahahahahhahahahahhahahaha
-        hahahhahahahahhahahhahahaha
-        hahahahhahahah
-        ahahhahahahahaha
-        hahahahahhahahahahhaha
-         */
-
-        return 0.0;
+        double totalGradePoints = 0.0;
+        int totalCreditHours = 0;
+        for (Enrollment enrollment : enrollments) {
+            Double grade = enrollment.getGrade();
+            if (grade != null) {
+                Course course = enrollment.getCourse();
+                totalGradePoints += grade * course.getCreditHours();
+                totalCreditHours += course.getCreditHours();
+            }
+        }
+        return totalGradePoints / totalCreditHours;
     }
 
     public void viewGrades() {

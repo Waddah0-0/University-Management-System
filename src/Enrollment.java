@@ -6,7 +6,7 @@ public class Enrollment {
     private LocalDate enrollmentDate;
     private Double  grade;
     private String  status;
-    private int maxCapacity = 7;// Example capacity
+    private int maxCapacity = 30;// Example capacity
     private List<Enrollment> enrollments = new ArrayList<>();
     public Enrollment(Student s, Course c, LocalDate enrollmentDate) {
        setCourse(c);
