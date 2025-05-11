@@ -15,7 +15,28 @@ public class AdminStaff extends User {
         setRole(role);
         setStaffId(staffId);
     }
+    public void displayUserMenu() {
+        int choice = 0;
+        Scanner scanner = new Scanner(System.in);
+        while (choice != 2) {
+            System.out.println("\n=== Admin Staff Menu ===");
+            System.out.println("1. Assign Faculty to Course");
+            // displays list of courses and available faculty
+            System.out.println("2. Logout");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    break;
+                case 2:
+                    logout();
+                    break;
+                default:
+                    System.out.println(" Invalid choice! ");
+            }
 
+        }
+    }
     public void registerStudent(Student s) {
         if (registeredStudents.contains(s)) {
             System.out.println("Student " + s.getName() + " is already registered.");

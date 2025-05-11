@@ -7,7 +7,33 @@ public class Faculty extends User {
         super(userId, username, password, name, email, contactInfo);
         setDepartment(department);
     }
+    public void displayUserMenu() {
+        int choice = 0;
+        Scanner scanner = new Scanner(System.in);
+        while (choice != 2) {
+            System.out.println("\n=== Faculty Menu ===");
+            System.out.println("1. View Courses Taught");
+            System.out.println("2. Logout");
+            System.out.print("Enter your choice: ");
 
+            choice = scanner.nextInt();
+             switch (choice) {
+                case 1:
+                    System.out.println("List of courses: ");
+                     // view list of courses
+                    // i don't know what to do here hellpppppppppppppp!
+                    System.out.println(" options: ");
+                    System.out.println("  display course details");
+                    System.out.println("  display roster of enrolled students");
+                    System.out.println(" add assignments");
+                    break;
+                case 2:
+                    logout();
+                    break;
+                 default:
+                    System.out.println(" Invalid choice! ");
+             }
+    }}
     public void assignGrade(Student s, Course c, double grade) {
         for (Enrollment enrollment : c.getEnrollments()) {
             if (enrollment.getStudent().equals(s)) {

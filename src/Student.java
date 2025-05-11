@@ -28,20 +28,21 @@ public class Student extends User {
             System.out.println("6. Update Profile");
             System.out.println("7. Logout");
             System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();}
-        switch (choice){
-            case 1:
+            choice = scanner.nextInt();
+            switch (choice){
+                case 1:
 
-                break;
-            case 2:
+                    break;
+                case 2:
 
-                break;
-            case 7:
-                logout();
-            default:
-                System.out.println(" Invalid choice! ");
+                    break;
+                case 7:
+                    logout();
+                    break;
+                default:
+                     System.out.println(" Invalid choice! ");
         }
-    }
+    }}
 
     public void registerForCourse(Course c) {
         if (!c.isPrerequisiteMet(this)) {
