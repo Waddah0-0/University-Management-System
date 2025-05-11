@@ -29,7 +29,10 @@ public abstract class User {
         setEmail(email);
         setContactInfo(contactInfo);
     }
-
+    public abstract void displayUserMenu();
+    public void logout(){
+        System.out.println("Logging out, Goodbye! ");
+    }
     public void resetPassword(String newPassword) {
         setPassword(newPassword);
     }

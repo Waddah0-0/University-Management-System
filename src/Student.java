@@ -14,6 +14,35 @@ public class Student extends User {
         setAcademicStatus(academicStatus);
     }
 
+    @Override
+    public void displayUserMenu() {
+        int choice=0;
+        Scanner scanner = new Scanner(System.in);
+        while (choice != 7) {
+            System.out.println("\n=== Student Menu ===");
+            System.out.println("1. Register for Course");
+            System.out.println("2. Drop Course");
+            System.out.println("3. View Registered Courses");
+            System.out.println("4. View Grades");
+            System.out.println("5. Calculate GPA");
+            System.out.println("6. Update Profile");
+            System.out.println("7. Logout");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();}
+        switch (choice){
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 7:
+                logout();
+            default:
+                System.out.println(" Invalid choice! ");
+        }
+    }
+
     public void registerForCourse(Course c) {
         if (!c.isPrerequisiteMet(this)) {
             System.out.println(" Prerequisites not met");
